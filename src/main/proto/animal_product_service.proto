@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package com.via3.pro3;
+
+option java_package = "com.via.pro3.animalproductservice";
+option java_outer_classname = "AnimalProductServiceOuterClass";
+
+service AnimalProductService {
+  rpc GetAnimalsByProduct (ProductRequest) returns (AnimalListResponse);
+  rpc GetProductsByAnimal (AnimalRequest) returns (ProductListResponse);
+  rpc RecallProductsByAnimal (AnimalRequest) returns (RecallResponse);
+}
+
+message ProductRequest {
+  int32 product_id = 1;
+}
+
+message AnimalRequest {
+  int32 animal_id = 1;
+}
+
+message Animal {
+  int32 id = 1;
+  double weight = 2;
+  string arrival_time = 3;
+  string species = 4;
+}
+
+message Product {
+  int32 id = 1;
+  string name = 2;
+  double weight = 3;
+}
+
+message AnimalListResponse {
+  repeated Animal animals = 1;
+}
+
+message ProductListResponse {
+  repeated Product products = 1;
+}
+
+message RecallResponse {
+  string message = 1;
+  repeated int32 recalled_product_ids = 2;
+}
