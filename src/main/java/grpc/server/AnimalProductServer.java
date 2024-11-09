@@ -2,11 +2,13 @@ package grpc.server;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import org.springframework.stereotype.Component;
 import util.DatabaseUtil;
 
 import javax.sql.DataSource;
 import java.io.IOException;
 
+@Component
 public class AnimalProductServer {
     private Server server;
 
