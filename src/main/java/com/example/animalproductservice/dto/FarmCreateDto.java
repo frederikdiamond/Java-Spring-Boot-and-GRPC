@@ -1,17 +1,13 @@
-package dto;
+package com.example.animalproductservice.dto;
 
-public class FarmDto {
-    private Integer id;
+import jakarta.validation.constraints.NotBlank;
+
+public class FarmCreateDto {
+    @NotBlank(message = "Name is required")
     private String name;
+
+    @NotBlank(message = "Location is required")
     private String location;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

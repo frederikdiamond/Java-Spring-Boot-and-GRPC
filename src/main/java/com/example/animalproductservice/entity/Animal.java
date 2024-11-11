@@ -1,8 +1,11 @@
-package entity;
+package com.example.animalproductservice.entity;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "animals")
@@ -11,8 +14,11 @@ public class Animal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(name = "registration_number", nullable = false, unique = true)
+    private String registrationNumber;
+
     @Column(nullable = false)
-    private Double weight;
+    private BigDecimal weight;
 
     @Column(name = "arrival_time", nullable = false)
     private LocalDateTime arrivalTime;
@@ -20,14 +26,17 @@ public class Animal {
     @Column(nullable = false)
     private String species;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "farm_id", nullable = false)
     private Farm farm;
 
-    @Version
-    private Long version;
-
-    public Animal() {}
+    @ManyToMany
+    @JoinTable(
+            name = "animal_parts",
+            joinColumns = @JoinColumn(name = "animal_id"),
+            inverseJoinColumns = @JoinColumn(name = "part_id")
+    )
+    private Set<Part> parts = new HashSet<>();
 
     public Integer getId() {
         return id;
@@ -37,11 +46,19 @@ public class Animal {
         this.id = id;
     }
 
-    public Double getWeight() {
+    public String getRegistrationNumber() {
+        return registrationNumber;
+    }
+
+    public void setRegistrationNumber(String registrationNumber) {
+        this.registrationNumber = registrationNumber;
+    }
+
+    public BigDecimal getWeight() {
         return weight;
     }
 
-    public void setWeight(Double weight) {
+    public void setWeight(BigDecimal weight) {
         this.weight = weight;
     }
 
@@ -69,18 +86,11 @@ public class Animal {
         this.farm = farm;
     }
 
-    public Long getVersion() {
-        return version;
-    }
-
-    public void setVersion(Long version) {
-        this.version = version;
-    }
-
     @Override
     public String toString() {
         return "Animal{" +
                 "id=" + id +
+                ", registrationNumber='" + registrationNumber + '\'' +
                 ", weight=" + weight +
                 ", arrivalTime=" + arrivalTime +
                 ", species='" + species + '\'' +

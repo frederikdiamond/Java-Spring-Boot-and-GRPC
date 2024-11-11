@@ -1,6 +1,8 @@
-package entity;
+package com.example.animalproductservice.entity;
 
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "farms")
@@ -14,6 +16,9 @@ public class Farm {
 
     @Column(nullable = false)
     private String location;
+
+    @OneToMany(mappedBy = "farm")
+    private List<Animal> animals;
 
     public Farm() {}
 

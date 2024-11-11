@@ -6,6 +6,7 @@ create table farms (
 
 create table animals (
      id serial primary key,
+     registration_number varchar(50) not null unique,
      weight decimal not null,
      arrival_time timestamp not null,
      species varchar(255) not null,

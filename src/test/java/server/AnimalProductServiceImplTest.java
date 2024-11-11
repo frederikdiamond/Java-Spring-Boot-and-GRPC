@@ -2,7 +2,7 @@ package server;
 
 import com.via.pro3.animalproductservice.AnimalProductServiceGrpc;
 import com.via.pro3.animalproductservice.AnimalProductServiceOuterClass;
-import grpc.server.AnimalProductServiceImpl;
+import com.example.animalproductservice.grpc.server.AnimalProductServiceImpl;
 import io.grpc.ManagedChannel;
 import io.grpc.Server;
 import io.grpc.Status;

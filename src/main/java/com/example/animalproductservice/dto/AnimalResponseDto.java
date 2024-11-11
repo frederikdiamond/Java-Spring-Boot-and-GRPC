@@ -1,27 +1,28 @@
-package dto;
+package com.example.animalproductservice.dto;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class AnimalResponseDto {
-    private Integer id;
-    private Double weight;
+    private String registrationNumber;
+    private BigDecimal weight;
     private LocalDateTime arrivalTime;
     private String species;
     private FarmDto farm;
 
-    public Integer getId() {
-        return id;
+    public String getRegistrationNumber() {
+        return registrationNumber;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setRegistrationNumber(String registrationNumber) {
+        this.registrationNumber = registrationNumber;
     }
 
-    public Double getWeight() {
+    public BigDecimal getWeight() {
         return weight;
     }
 
-    public void setWeight(Double weight) {
+    public void setWeight(BigDecimal weight) {
         this.weight = weight;
     }
 
