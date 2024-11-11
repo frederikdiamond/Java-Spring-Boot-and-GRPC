@@ -1,4 +1,4 @@
-package server;
+package com.example.animalproductservice.server;
 
 import com.via.pro3.animalproductservice.AnimalProductServiceGrpc;
 import com.via.pro3.animalproductservice.AnimalProductServiceOuterClass;

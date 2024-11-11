@@ -92,10 +92,10 @@ INSERT INTO farms (name, location) VALUES
                    ('Green Valley Farm', 'North Field'),
                    ('Sunny Acres', 'East Meadow');
 
-INSERT INTO animals (weight, arrival_time, species, farm_id) VALUES
-                                             (1200.5, '2023-10-01 08:30:00', 'Cow', 1),
-                                             (800.0, '2023-10-05 09:15:00', 'Pig', 1),
-                                             (1500.0, '2023-10-10 07:45:00', 'Cow', 2);
+INSERT INTO animals (registration_number, weight, arrival_time, species, farm_id) VALUES
+                                             ('AN001',1200.5, '2023-10-01 08:30:00', 'Cow', 1),
+                                             ('AN002',800.0, '2023-10-05 09:15:00', 'Pig', 1),
+                                             ('AN003',1500.0, '2023-10-10 07:45:00', 'Cow', 2);
 
 INSERT INTO stations (name) VALUES
             ('Slaughterhouse'),
